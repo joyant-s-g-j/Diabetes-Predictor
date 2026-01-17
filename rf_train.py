@@ -18,3 +18,13 @@ weather_desc = pd.read_csv("dataset/weather_description.csv")
 wind_dir = pd.read_csv("dataset/wind_direction.csv")
 wind_speed = pd.read_csv("dataset/wind_speed.csv")
 
+def melt_df(df, val_name):
+  return df.melt(id_vars=['datetime'], var_name='city', value_name=val_name)
+
+temp = melt_df(temperature, "temperature")
+humi = melt_df(humidity, "humidity")
+pres = melt_df(pressure, "pressure")
+wthr_desc = melt_df(weather_desc, "weather_description")
+wind_d = melt_df(wind_dir, "wind_direction")
+wind_s = melt_df(wind_speed, "wind_speed")
+
