@@ -50,3 +50,10 @@ num_transformer = Pipeline(
     ]
 )
 
+cat_transformer = Pipeline(
+    steps = [
+        ('imputer', SimpleImputer(strategy='most_frequent')),
+        ('encoder', OneHotEncoder(handle_unknown='ignore', sparse_output=False))
+    ]
+)
+
