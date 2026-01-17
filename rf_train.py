@@ -57,3 +57,9 @@ cat_transformer = Pipeline(
     ]
 )
 
+preprocessor = ColumnTransformer(
+    transformers= [
+        ('num', num_transformer, numeric_features),
+        ('cat', cat_transformer, categorical_features)
+    ]
+)
