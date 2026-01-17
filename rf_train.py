@@ -82,3 +82,9 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 pipeline.fit(X_train, y_train)
+
+y_pred = pipeline.predict(X_test)
+
+print("MAE:", mean_absolute_error(y_test, y_pred))
+print("RMSE:", np.sqrt(mean_squared_error(y_test, y_pred)))
+print("R² Score:", r2_score(y_test, y_pred))
