@@ -34,3 +34,9 @@ df = temp.merge(humi, on=['datetime', 'city']) \
          .merge(wind_d, on=['datetime', 'city']) \
          .merge(wind_s, on=['datetime', 'city'])
 
+df['temperature'] = df['temperature'] - 273.15
+df = df[df['temperature'].between(-50, 60)]
+
+X = df.drop(columns=['temperature','datetime','city'], axis=1)
+y = df['temperature']
+
